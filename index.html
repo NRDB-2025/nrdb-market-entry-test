@@ -8,7 +8,7 @@
 <meta content="#071827" name="theme-color"/>
 <meta content="© 2026 NRDB Solutions. All Rights Reserved." name="copyright"/>
 <meta content="NRDB Solutions" name="author"/>
-<meta content="Landing V9 Final QA Candidate - Mobile Modal Fix" name="nrdb-version"/>
+<meta content="Landing V9 Final QA Candidate - Cross Device Modal Fix" name="nrdb-version"/>
 <meta content="noindex,nofollow" name="robots"/>
 <title>NRDB Solutions | U.S. Market Entry for Latin American Manufacturers</title>
 <style>
@@ -186,8 +186,8 @@
     .action-card .mini{font-size:12px;color:#738896;margin-top:12px}
     .action-card.primary .mini{color:#90aab8}
     .modal-backdrop{display:none;position:fixed;inset:0;z-index:100;background:rgba(3,14,23,.78);backdrop-filter:blur(8px);padding:28px;overflow:auto}
-    .modal-backdrop.open{display:grid;place-items:center}
-    .modal{width:min(760px,100%);background:#fff;border-radius:26px;box-shadow:0 30px 100px rgba(0,0,0,.35);overflow:hidden;position:relative}
+    .modal-backdrop.open{display:flex;align-items:flex-start;justify-content:center}
+    .modal{width:min(760px,100%);background:#fff;border-radius:26px;box-shadow:0 30px 100px rgba(0,0,0,.35);overflow:hidden;position:relative;margin:0 auto}
     .modal-wide{width:min(900px,100%)}
     .modal-head{padding:28px 32px 20px;border-bottom:1px solid var(--line);background:linear-gradient(180deg,#fff,#f8fbfd)}
     .modal-head h3{margin:5px 44px 6px 0;font-size:28px;line-height:1.12;color:var(--navy)}
@@ -283,7 +283,7 @@
         -webkit-overflow-scrolling:touch;
         overscroll-behavior:contain;
       }
-      .modal-backdrop.open{place-items:start center}
+      .modal-backdrop.open{align-items:flex-start;justify-content:center}
       .modal{margin:0 auto;border-radius:20px}
       .modal-head{padding:20px 18px 16px}
       .modal-head h3{font-size:24px;margin-right:42px}
@@ -1025,7 +1025,7 @@
       return lines.join('\n');
     }
 
-    const LANDING_VERSION = 'V9-FINAL-QA-MOBILE-FIX';
+    const LANDING_VERSION = 'V9-FINAL-QA-CROSS-DEVICE-FIX';
     let pendingLeadSubmission = false;
 
     function campaignMetadata(){
