@@ -8,7 +8,7 @@
 <meta content="#071827" name="theme-color"/>
 <meta content="© 2026 NRDB Solutions. All Rights Reserved." name="copyright"/>
 <meta content="NRDB Solutions" name="author"/>
-<meta content="Landing V9 Final QA Candidate - Cross Device Modal Fix" name="nrdb-version"/>
+<meta content="Landing V9 Final QA Candidate - Responsive Menu Fix" name="nrdb-version"/>
 <meta content="noindex,nofollow" name="robots"/>
 <title>NRDB Solutions | U.S. Market Entry for Latin American Manufacturers</title>
 <style>
@@ -430,6 +430,71 @@
       .progress-wrap{margin-bottom:18px}
     }
 
+
+    /* FINAL QA — responsive navigation: preserve the desktop menu on tablet/mobile */
+    .mobile-menu-toggle{
+      display:none;
+      align-items:center;
+      justify-content:center;
+      gap:8px;
+      min-width:46px;
+      height:46px;
+      padding:0 12px;
+      border:1px solid #d7e3ea;
+      border-radius:13px;
+      background:#fff;
+      color:var(--navy);
+      font:inherit;
+      font-size:12px;
+      font-weight:850;
+      cursor:pointer;
+      box-shadow:0 5px 18px rgba(7,24,39,.05);
+    }
+    .mobile-menu-toggle:hover{border-color:#b9d5e5;color:var(--blue)}
+    .mobile-menu-icon{display:grid;gap:4px;width:18px}
+    .mobile-menu-icon span{display:block;height:2px;border-radius:99px;background:currentColor;transition:.2s ease}
+    .mobile-menu-toggle[aria-expanded="true"] .mobile-menu-icon span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+    .mobile-menu-toggle[aria-expanded="true"] .mobile-menu-icon span:nth-child(2){opacity:0}
+    .mobile-menu-toggle[aria-expanded="true"] .mobile-menu-icon span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
+    .mobile-nav{
+      display:none;
+      position:absolute;
+      left:0;
+      right:0;
+      top:100%;
+      background:rgba(255,255,255,.985);
+      border-top:1px solid #edf2f5;
+      border-bottom:1px solid #dce7ee;
+      box-shadow:0 18px 36px rgba(7,24,39,.13);
+      backdrop-filter:blur(16px);
+    }
+    .mobile-nav.open{display:block}
+    .mobile-nav-inner{display:grid;padding:10px 0 16px}
+    .mobile-nav a:not(.btn){
+      display:flex;
+      align-items:center;
+      min-height:46px;
+      padding:0 4px;
+      border-bottom:1px solid #edf2f5;
+      color:#365064;
+      font-size:14px;
+      font-weight:800;
+    }
+    .mobile-nav a:not(.btn):hover{color:var(--blue)}
+    .mobile-nav .btn{display:flex!important;width:100%;margin-top:14px}
+    @media(max-width:980px){
+      .navlinks{display:none}
+      .mobile-menu-toggle{display:inline-flex}
+    }
+    @media(min-width:981px){
+      .mobile-nav{display:none!important}
+    }
+    @media(max-width:620px){
+      .mobile-menu-toggle{min-width:44px;height:44px;padding:0 10px}
+      .mobile-menu-label{display:none}
+      .mobile-nav-inner{padding-top:6px;padding-bottom:max(14px,env(safe-area-inset-bottom))}
+    }
+
 </style>
 </head>
 <body>
@@ -442,6 +507,17 @@
 <div class="navlinks">
 
 <a href="#nrdb">Quiénes somos</a><a href="#problema">Modelo</a><a href="#assessment">Assessment</a><a href="#diferencia">Diferencia</a><a href="#faq">Preguntas</a><a class="btn btn-primary js-conversation" href="#contacto">Solicitar conversación</a></div>
+<button aria-controls="mobileNav" aria-expanded="false" aria-label="Abrir menú de navegación" class="mobile-menu-toggle" id="mobileMenuToggle" type="button"><span class="mobile-menu-label">Menú</span><span aria-hidden="true" class="mobile-menu-icon"><span></span><span></span><span></span></span></button>
+</div>
+<div aria-hidden="true" class="mobile-nav" id="mobileNav">
+<div class="container mobile-nav-inner">
+<a href="#nrdb">Quiénes somos</a>
+<a href="#problema">Modelo</a>
+<a href="#assessment">Assessment</a>
+<a href="#diferencia">Diferencia</a>
+<a href="#faq">Preguntas</a>
+<a class="btn btn-primary js-conversation" href="#contacto">Solicitar conversación</a>
+</div>
 </div>
 </nav>
 <header class="hero" id="inicio">
@@ -989,6 +1065,33 @@
       if (persistentLogo) img.src = persistentLogo.src;
     });
 
+    const mobileMenuToggle = document.getElementById('mobileMenuToggle');
+    const mobileNav = document.getElementById('mobileNav');
+
+    function closeMobileMenu(){
+      if(!mobileMenuToggle || !mobileNav) return;
+      mobileMenuToggle.setAttribute('aria-expanded','false');
+      mobileMenuToggle.setAttribute('aria-label','Abrir menú de navegación');
+      mobileNav.classList.remove('open');
+      mobileNav.setAttribute('aria-hidden','true');
+    }
+    function toggleMobileMenu(){
+      if(!mobileMenuToggle || !mobileNav) return;
+      const willOpen = mobileMenuToggle.getAttribute('aria-expanded') !== 'true';
+      mobileMenuToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+      mobileMenuToggle.setAttribute('aria-label', willOpen ? 'Cerrar menú de navegación' : 'Abrir menú de navegación');
+      mobileNav.classList.toggle('open', willOpen);
+      mobileNav.setAttribute('aria-hidden', willOpen ? 'false' : 'true');
+    }
+    if(mobileMenuToggle && mobileNav){
+      mobileMenuToggle.addEventListener('click', toggleMobileMenu);
+      mobileNav.querySelectorAll('a').forEach(a=>a.addEventListener('click', closeMobileMenu));
+      window.addEventListener('resize', ()=>{ if(window.innerWidth > 980) closeMobileMenu(); });
+      document.addEventListener('click', e=>{
+        if(mobileNav.classList.contains('open') && !mobileNav.contains(e.target) && !mobileMenuToggle.contains(e.target)) closeMobileMenu();
+      });
+    }
+
     const conversationModal = document.getElementById('conversationModal');
     const evaluationModal = document.getElementById('evaluationModal');
     const privacyModal = document.getElementById('privacyModal');
@@ -1016,7 +1119,7 @@
     document.querySelectorAll('.js-privacy').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();openModal(privacyModal)}));
     document.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',()=>closeModal(el.closest('.modal-backdrop'))));
     document.querySelectorAll('.modal-backdrop').forEach(m=>m.addEventListener('click',e=>{if(e.target===m) closeModal(m)}));
-    document.addEventListener('keydown',e=>{if(e.key==='Escape'){const open=[...document.querySelectorAll('.modal-backdrop.open')]; if(open.length) closeModal(open[open.length-1]);}});
+    document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMobileMenu();const open=[...document.querySelectorAll('.modal-backdrop.open')]; if(open.length) closeModal(open[open.length-1]);}});
 
     function cleanValue(v){ return (v || '').toString().trim(); }
     function formLines(form){
@@ -1025,7 +1128,7 @@
       return lines.join('\n');
     }
 
-    const LANDING_VERSION = 'V9-FINAL-QA-CROSS-DEVICE-FIX';
+    const LANDING_VERSION = 'V9-FINAL-QA-RESPONSIVE-MENU';
     let pendingLeadSubmission = false;
 
     function campaignMetadata(){
