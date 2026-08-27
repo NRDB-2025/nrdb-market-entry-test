@@ -8,7 +8,7 @@
 <meta content="#071827" name="theme-color"/>
 <meta content="© 2026 NRDB Solutions. All Rights Reserved." name="copyright"/>
 <meta content="NRDB Solutions" name="author"/>
-<meta content="Landing V9 Google Forms Bridge Test 3" name="nrdb-version"/>
+<meta content="Landing V9 Final QA Candidate" name="nrdb-version"/>
 <meta content="noindex,nofollow" name="robots"/>
 <title>NRDB Solutions | U.S. Market Entry for Latin American Manufacturers</title>
 <style>
@@ -402,6 +402,12 @@
     @keyframes nrdbCueBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(4px)}}
     @media(prefers-reduced-motion:reduce){.section-scroll-cue .cue-arrow{animation:none}}
     @media(max-width:620px){.section-scroll-cue{margin-top:-6px;margin-bottom:18px;font-size:11px}}
+    #problema,#buyer-access,#asset-light{scroll-margin-top:92px}
+    .strategic-route{margin-top:24px;padding:14px 16px;border:1px solid #d9e6ed;border-radius:14px;background:#f8fbfd;display:flex;align-items:center;justify-content:space-between;gap:16px;flex-wrap:wrap}
+    .strategic-route span{font-size:11px;font-weight:850;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+    .strategic-route a{font-size:13px;font-weight:850;color:var(--blue);text-decoration:none}
+    .strategic-route a:hover{text-decoration:underline}
+    @media(max-width:620px){.strategic-route{align-items:flex-start;flex-direction:column;gap:7px}}
 
 </style>
 </head>
@@ -414,7 +420,7 @@
 </a>
 <div class="navlinks">
 
-<a href="#nrdb">Quiénes somos</a><a href="#modelo">Modelo</a><a href="#assessment">Assessment</a><a href="#diferencia">Diferencia</a><a href="#faq">Preguntas</a><a class="btn btn-primary js-conversation" href="#contacto">Solicitar conversación</a></div>
+<a href="#nrdb">Quiénes somos</a><a href="#problema">Modelo</a><a href="#assessment">Assessment</a><a href="#diferencia">Diferencia</a><a href="#faq">Preguntas</a><a class="btn btn-primary js-conversation" href="#contacto">Solicitar conversación</a></div>
 </div>
 </nav>
 <header class="hero" id="inicio">
@@ -425,7 +431,7 @@
 <p>Una infraestructura integrada para preparar <strong>SU EMPRESA</strong>, preparar su producto, gestionar requisitos regulatorios aplicables, representarlo comercialmente, desarrollar compradores B2B y coordinar la importación hasta la entrega directa al cliente.</p>
 <div class="hero-actions">
 <a class="btn btn-primary js-evaluation" href="#contacto">Evaluar mi entrada a EE. UU. →</a>
-<a class="btn btn-light" href="#modelo">Ver cómo funciona</a>
+<a class="btn btn-light" href="#problema">Ver cómo funciona</a>
 </div>
 <div class="micro">Sin necesidad de construir inicialmente una oficina, equipo comercial o infraestructura propia de entrada en Estados Unidos.</div>
 </div>
@@ -441,7 +447,7 @@
 </div>
 </div>
 </header>
-<section>
+<section id="problema">
 <div class="container">
 <div class="section-head">
 <div class="section-brand"><span class="brand-name">NRDB SOLUTIONS<span class="service-mark">℠</span></span><span class="brand-sep">·</span><span class="brand-slogan">New Routes. Dynamic Breakthroughs.<span class="service-mark">℠</span></span></div>
@@ -541,6 +547,7 @@
 <div class="status-item"><b>NOT REQUIRED NOW</b><span>No justifica inversión en esta etapa.</span></div>
 </div>
 <div class="assessment-callout"><strong>La evaluación preliminar gratuita no es este Assessment.</strong> Sirve para entender el punto de partida y determinar si existe fit. El Assessment profesional profundiza, prioriza brechas y convierte el diagnóstico en una ruta de ejecución.</div>
+<div class="strategic-route"><span>Continuar el recorrido</span><a href="#buyer-access">Ver requisitos que pueden condicionar el acceso a compradores →</a></div>
 <div class="section-cta"><a class="btn btn-primary js-conversation" href="#contacto">Conversar sobre el Assessment →</a><span class="hint">El alcance se define según empresa, producto y objetivos.</span></div>
 </div>
 </section>
@@ -612,7 +619,8 @@
 <p>Integra preparación, infraestructura regulatoria aplicable, representación, buyer development e importación, con flujo direct-to-buyer cuando la operación lo permite.</p>
 </div>
 </div>
-<div class="split">
+<div class="strategic-route"><span>Continuar el recorrido</span><a href="#asset-light">Ver cómo NRDB reduce intermediación física →</a></div>
+<div class="split" id="asset-light">
 <div>
 <div class="kicker">Modelo asset-light</div>
 <h2>Su producto no debería pasar por más manos de las necesarias.</h2>
@@ -990,7 +998,7 @@
       return lines.join('\n');
     }
 
-    const LANDING_VERSION = 'V9-GFORMS-BRIDGE-TEST-3';
+    const LANDING_VERSION = 'V9-FINAL-QA-CANDIDATE';
     let pendingLeadSubmission = false;
 
     function campaignMetadata(){
