@@ -8,8 +8,17 @@
 <meta content="#071827" name="theme-color"/>
 <meta content="© 2026 NRDB Solutions. All Rights Reserved." name="copyright"/>
 <meta content="NRDB Solutions" name="author"/>
-<meta content="Landing V9 Final QA Candidate - Institutional Balance Fix" name="nrdb-version"/>
-<meta content="noindex,nofollow" name="robots"/>
+<meta content="NRDB Market Entry Landing - Production V1" name="nrdb-version"/>
+<meta content="index,follow" name="robots"/>
+<link href="https://marketentry.nrdbsolutions.com/" rel="canonical"/>
+<meta content="website" property="og:type"/>
+<meta content="NRDB Solutions | U.S. Market Entry for Latin American Manufacturers" property="og:title"/>
+<meta content="NRDB Solutions ayuda a fabricantes latinoamericanos a desarrollar el mercado de Estados Unidos integrando preparación, cumplimiento regulatorio, representación comercial, desarrollo de compradores e infraestructura de importación." property="og:description"/>
+<meta content="https://marketentry.nrdbsolutions.com/" property="og:url"/>
+<meta content="NRDB Solutions" property="og:site_name"/>
+<meta content="summary" name="twitter:card"/>
+<meta content="NRDB Solutions | U.S. Market Entry for Latin American Manufacturers" name="twitter:title"/>
+<meta content="NRDB Solutions ayuda a fabricantes latinoamericanos a desarrollar el mercado de Estados Unidos integrando preparación, cumplimiento regulatorio, representación comercial, desarrollo de compradores e infraestructura de importación." name="twitter:description"/>
 <title>NRDB Solutions | U.S. Market Entry for Latin American Manufacturers</title>
 <style>
     :root {
@@ -401,13 +410,13 @@
     .conditional-disabled{opacity:.55}
 
   
-    /* V9 connected test — live submission state */
+    /* PRODUCTION V1 — live submission state */
     .optional-consent{background:#fff;border-style:dashed}
     .hp-field{position:absolute!important;left:-10000px!important;top:auto!important;width:1px!important;height:1px!important;overflow:hidden!important}
     .optional-consent strong{color:var(--navy)}
     .btn.is-sending{opacity:.72;cursor:wait;transform:none!important}
 
-    /* V9 connected test correction — explicit continuation cues */
+    /* PRODUCTION V1 — explicit continuation cues */
     .section-scroll-cue{display:inline-flex;align-items:center;gap:9px;margin:-12px 0 22px;padding:8px 12px;border-radius:999px;border:1px solid #d9e6ed;background:#f8fbfd;color:#4c687a;font-size:11.5px;font-weight:800;letter-spacing:.015em;cursor:pointer;transition:.2s ease}
     .section-scroll-cue:hover{border-color:#b9d5e5;color:var(--blue);background:#fff}
     .section-scroll-cue .cue-arrow{display:inline-block;color:var(--blue);font-size:16px;line-height:1;animation:nrdbCueBounce 1.35s ease-in-out infinite}
@@ -431,7 +440,7 @@
     }
 
 
-    /* FINAL QA — responsive navigation: preserve the desktop menu on tablet/mobile */
+    /* PRODUCTION V1 — responsive navigation */
     .mobile-menu-toggle{
       display:none;
       align-items:center;
@@ -496,7 +505,7 @@
     }
 
 
-    /* FINAL QA — institutional layout balance */
+    /* PRODUCTION V1 — institutional layout balance */
     .institutional-proof-row{margin-top:24px}
     .institutional-proof-row .proof-grid{grid-template-columns:repeat(4,1fr);margin-top:0}
     @media(max-width:980px){
@@ -1067,7 +1076,7 @@
 </footer>
 <div class="mobile-cta"><a class="btn btn-primary js-conversation" href="#contacto">Conversar con NRDB</a></div>
 <script>
-    // V9 GOOGLE FORMS BRIDGE TEST 3 — STRICT VALIDATION + ZERO-COST LEAD CAPTURE
+    // PRODUCTION V1 — GOOGLE FORMS BRIDGE + STRICT VALIDATION + ZERO-COST LEAD CAPTURE
     // The visitor never sees Google Forms. The landing sends one JSON payload to the
     // internal NRDB Google Form, whose spreadsheet trigger processes the lead.
     const CONTACT_EMAIL = 'marketentry@nrdbsolutions.com';
@@ -1142,7 +1151,7 @@
       return lines.join('\n');
     }
 
-    const LANDING_VERSION = 'V9-FINAL-QA-INSTITUTIONAL-BALANCE';
+    const LANDING_VERSION = 'PRODUCTION-V1';
     let pendingLeadSubmission = false;
 
     function campaignMetadata(){
