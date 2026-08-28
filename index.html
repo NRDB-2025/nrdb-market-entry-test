@@ -8,7 +8,7 @@
 <meta content="#071827" name="theme-color"/>
 <meta content="© 2026 NRDB Solutions. All Rights Reserved." name="copyright"/>
 <meta content="NRDB Solutions" name="author"/>
-<meta content="Landing V9 Final QA Candidate - Responsive Menu + Fit Card Fix" name="nrdb-version"/>
+<meta content="Landing V9 Final QA Candidate - Institutional Balance Fix" name="nrdb-version"/>
 <meta content="noindex,nofollow" name="robots"/>
 <title>NRDB Solutions | U.S. Market Entry for Latin American Manufacturers</title>
 <style>
@@ -495,6 +495,18 @@
       .mobile-nav-inner{padding-top:6px;padding-bottom:max(14px,env(safe-area-inset-bottom))}
     }
 
+
+    /* FINAL QA — institutional layout balance */
+    .institutional-proof-row{margin-top:24px}
+    .institutional-proof-row .proof-grid{grid-template-columns:repeat(4,1fr);margin-top:0}
+    @media(max-width:980px){
+      .institutional-proof-row .proof-grid{grid-template-columns:repeat(2,1fr)}
+    }
+    @media(max-width:620px){
+      .institutional-proof-row{margin-top:18px}
+      .institutional-proof-row .proof-grid{grid-template-columns:1fr}
+    }
+
 </style>
 </head>
 <body>
@@ -571,12 +583,6 @@
 <p>NRDB Solutions LLC es una compañía establecida en Estados Unidos enfocada en apoyar a fabricantes latinoamericanos que buscan desarrollar el mercado estadounidense. NRDB integra preparación empresarial y de producto, buyer development, representación comercial y coordinación de las funciones regulatorias y de importación que correspondan.</p>
 <p><strong style="color:var(--navy)">NRDB actúa como punto de continuidad en Estados Unidos</strong>, mientras autoridades, especialistas y terceros licenciados conservan las responsabilidades que legalmente les corresponden.</p>
 </div>
-<div class="proof-grid">
-<div class="proof-item"><strong>U.S. COMPANY</strong><span>Estructura establecida en Estados Unidos.</span></div>
-<div class="proof-item"><strong>LATIN AMERICA → U.S.</strong><span>Enfoque en fabricantes que buscan desarrollar el mercado estadounidense.</span></div>
-<div class="proof-item"><strong>B2B MARKET DEVELOPMENT</strong><span>Construcción de relaciones comerciales y cuentas, no venta masiva al consumidor.</span></div>
-<div class="proof-item"><strong>INTEGRATED COORDINATION</strong><span>Una sola coordinación sin confundir las funciones legales de cada actor.</span></div>
-</div>
 </div>
 <div class="fit-card">
 <div class="system-signature">IDEAL CLIENT PROFILE</div>
@@ -589,6 +595,14 @@
 <div><b>✓</b><span>Visión de construir compradores, reorders y crecimiento en Estados Unidos.</span></div>
 </div>
 <div class="fit-boundary"><strong>No es una promesa de ventas rápidas.</strong> NRDB no es el modelo adecuado para empresas que buscan ventas garantizadas o que no estén dispuestas a realizar los ajustes que el mercado y los compradores puedan exigir.</div>
+</div>
+</div>
+<div class="container institutional-proof-row">
+<div class="proof-grid">
+<div class="proof-item"><strong>U.S. COMPANY</strong><span>Estructura establecida en Estados Unidos.</span></div>
+<div class="proof-item"><strong>LATIN AMERICA → U.S.</strong><span>Enfoque en fabricantes que buscan desarrollar el mercado estadounidense.</span></div>
+<div class="proof-item"><strong>B2B MARKET DEVELOPMENT</strong><span>Construcción de relaciones comerciales y cuentas, no venta masiva al consumidor.</span></div>
+<div class="proof-item"><strong>INTEGRATED COORDINATION</strong><span>Una sola coordinación sin confundir las funciones legales de cada actor.</span></div>
 </div>
 </div>
 </section>
@@ -1128,7 +1142,7 @@
       return lines.join('\n');
     }
 
-    const LANDING_VERSION = 'V9-FINAL-QA-RESPONSIVE-MENU-FIT-FIX';
+    const LANDING_VERSION = 'V9-FINAL-QA-INSTITUTIONAL-BALANCE';
     let pendingLeadSubmission = false;
 
     function campaignMetadata(){
