@@ -8,7 +8,7 @@
 <meta content="#071827" name="theme-color"/>
 <meta content="© 2026 NRDB Solutions. All Rights Reserved." name="copyright"/>
 <meta content="NRDB Solutions" name="author"/>
-<meta content="Landing V9 Final QA Candidate - Responsive Menu Fix" name="nrdb-version"/>
+<meta content="Landing V9 Final QA Candidate - Responsive Menu + Fit Card Fix" name="nrdb-version"/>
 <meta content="noindex,nofollow" name="robots"/>
 <title>NRDB Solutions | U.S. Market Entry for Latin American Manufacturers</title>
 <style>
@@ -299,13 +299,13 @@
 
     /* V9 — final content candidate: trust, qualification, deliverable & conversion clarity */
     .institutional{background:#fff}
-    .institutional-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:stretch}
+    .institutional-grid{display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:start}
     .institutional-copy p{font-size:17px;color:var(--muted);margin:0 0 18px}
     .proof-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin-top:24px}
     .proof-item{padding:15px 16px;border:1px solid var(--line);border-radius:15px;background:#f8fbfd}
     .proof-item strong{display:block;color:var(--navy);font-size:13px;margin-bottom:3px}
     .proof-item span{font-size:11.5px;color:#6b8291}
-    .fit-card{background:linear-gradient(145deg,#071827,#0d3046);color:#fff;border-radius:26px;padding:32px;box-shadow:var(--shadow)}
+    .fit-card{background:linear-gradient(145deg,#071827,#0d3046);color:#fff;border-radius:26px;padding:32px;box-shadow:var(--shadow);align-self:start}
     .fit-card h3{font-size:26px;line-height:1.12;margin:5px 0 12px;color:#fff}
     .fit-card>p{color:#b8ccd7;font-size:14px;margin:0}
     .fit-list{display:grid;gap:11px;margin:22px 0 20px}
@@ -1128,7 +1128,7 @@
       return lines.join('\n');
     }
 
-    const LANDING_VERSION = 'V9-FINAL-QA-RESPONSIVE-MENU';
+    const LANDING_VERSION = 'V9-FINAL-QA-RESPONSIVE-MENU-FIT-FIX';
     let pendingLeadSubmission = false;
 
     function campaignMetadata(){
