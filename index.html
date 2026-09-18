@@ -1209,8 +1209,6 @@ body{background:#fff}
         openModal(evaluationModal);
       }
     }
-    openRequestedFormFromUrl();
-
     document.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',()=>closeModal(el.closest('.modal-backdrop'))));
     document.querySelectorAll('.modal-backdrop').forEach(m=>m.addEventListener('click',e=>{if(e.target===m) closeModal(m)}));
     document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMobileMenu();const open=[...document.querySelectorAll('.modal-backdrop.open')]; if(open.length) closeModal(open[open.length-1]);}});
@@ -1222,7 +1220,7 @@ body{background:#fff}
       return lines.join('\n');
     }
 
-    const LANDING_VERSION = 'PRODUCTION-V3.4-DIRECT-FORMS';
+    const LANDING_VERSION = 'PRODUCTION-V3.4.1-DIRECT-FORMS';
     let pendingLeadSubmission = false;
 
     function campaignMetadata(){
@@ -1729,6 +1727,7 @@ body{background:#fff}
       field.addEventListener('change',()=>clearCustom(field));
     });
     updateWebsiteState(); updateExportCountries(); updateProductBranch(); updateConditionalFields(); showStep(0);
+    openRequestedFormFromUrl();
   </script>
 </body>
 </html>
