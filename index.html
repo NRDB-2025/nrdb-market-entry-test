@@ -1197,6 +1197,20 @@ body{background:#fff}
     document.querySelectorAll('.js-conversation').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();resetConversation();openModal(conversationModal)}));
     document.querySelectorAll('.js-evaluation').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();resetEvaluation();openModal(evaluationModal)}));
     document.querySelectorAll('.js-privacy').forEach(el=>el.addEventListener('click',e=>{e.preventDefault();openModal(privacyModal)}));
+
+    function openRequestedFormFromUrl(){
+      const params = new URLSearchParams(window.location.search);
+      const requestedForm = cleanValue(params.get('form') || window.location.hash.replace(/^#/, '')).toLowerCase();
+      if(requestedForm === 'conversation'){
+        resetConversation();
+        openModal(conversationModal);
+      }else if(requestedForm === 'evaluation'){
+        resetEvaluation();
+        openModal(evaluationModal);
+      }
+    }
+    openRequestedFormFromUrl();
+
     document.querySelectorAll('[data-close]').forEach(el=>el.addEventListener('click',()=>closeModal(el.closest('.modal-backdrop'))));
     document.querySelectorAll('.modal-backdrop').forEach(m=>m.addEventListener('click',e=>{if(e.target===m) closeModal(m)}));
     document.addEventListener('keydown',e=>{if(e.key==='Escape'){closeMobileMenu();const open=[...document.querySelectorAll('.modal-backdrop.open')]; if(open.length) closeModal(open[open.length-1]);}});
@@ -1208,7 +1222,7 @@ body{background:#fff}
       return lines.join('\n');
     }
 
-    const LANDING_VERSION = 'PRODUCTION-V3.3-LINKEDIN';
+    const LANDING_VERSION = 'PRODUCTION-V3.4-DIRECT-FORMS';
     let pendingLeadSubmission = false;
 
     function campaignMetadata(){
